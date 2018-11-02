@@ -9,25 +9,25 @@ class DataPoint():
     '''
     classdocs
     '''
-    timeStamp = datetime.now()
-    temperature = 0.0
+    __timeStamp = datetime.now()
+    __temperature = 0.0
 
 
     def __init__(self, timeStamp, temperature):
         '''
         Constructor
         '''
-        self.timeStamp = timeStamp
-        self.temperature = temperature
+        self.__timeStamp = timeStamp
+        self.__temperature = temperature
         
     def getTimeStamp(self):
-        return self.timeStamp
+        return self.__timeStamp
     
     def getTemperature(self):
-        return self.temperature
+        return self.__temperature
     
     def __str__(self):
-        return "DataPoint [timeStamp = " + self.timeStamp.__str__() + "; temperature = " + self.temperature.__str__() + "]"
+        return "DataPoint [timeStamp = " + self.__timeStamp.__str__() + "; temperature = " + self.__temperature.__str__() + "]"
         
     def __repr__(self):
         return str(self)

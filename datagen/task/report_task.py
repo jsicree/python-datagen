@@ -37,5 +37,7 @@ class ReportTask():
                 print("Task complete")    
 
         s.enter(self.interval, 1, do_something, (s,cnt))
+#         if not s.empty():
+#             print(len(s.queue))
         s.run()
         

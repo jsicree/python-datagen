@@ -25,6 +25,7 @@ class InputFileReader(object):
         
         data.append(DataPoint(datetime(2018,10,30,8,34,25),2.5))
         data.append(DataPoint(datetime(2018,10,30,8,39,27),2.3))
-        
+        print("Data set size = ", len(data))    
+
         return data
     

@@ -12,24 +12,30 @@ class ReportTask():
     classdocs
     '''
     data = []
-    s = None
-    
-    def __init__(self, data):
+    interval = 0
+        
+    def __init__(self, data, interval=0):
         '''
         Constructor
         '''
-        self.data = data
-        
-        
+        self.data = data        
+        self.interval = interval
+        print("Task interval = ", self.interval)    
         
     def executeTask(self):
         print("Executing task")
+        cnt = 0; 
         s = sched.scheduler(time.time, time.sleep)
-        def do_something(sc): 
-            print("Doing stuff...")
+        def do_something(sc, cnt): 
+            
             # do your stuff
-            s.enter(5, 1, do_something, (sc,))
+            print("[",datetime.now(),"] Temperature:",self.data[cnt].getTemperature())
+            if cnt < (len(self.data) - 1):
+                cnt = cnt + 1
+                s.enter(self.interval, 1, do_something, (sc,cnt))
+            else:
+                print("Task complete")    
 
-        s.enter(5, 1, do_something, (s,))
+        s.enter(self.interval, 1, do_something, (s,cnt))
         s.run()
         

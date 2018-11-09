@@ -9,10 +9,9 @@ from datagen.task.report_task import ReportTask
 def main():
     fileReader = InputFileReader("foo")    
     data = fileReader.loadData()
-    print(data)    
 
-    task = ReportTask(data)
-    #task.executeTask()
+    task = ReportTask(data, 5)
+    task.executeTask()
 
 if __name__ == '__main__':
     main()

@@ -10,7 +10,7 @@ def main():
     fileReader = InputFileReader("foo")    
     data = fileReader.loadData()
 
-    task = ReportTask(data, 5)
+    task = ReportTask(data, 3)
     task.executeTask()
 
 if __name__ == '__main__':
